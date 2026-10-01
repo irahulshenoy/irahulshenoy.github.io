@@ -1,0 +1,93 @@
+# Pages CMS settings: turns _data/site.yml into an easy form at app.pagescms.org.
+# You don't need to edit this file.
+
+media:
+  input: images
+  output: /images
+  categories: [image]
+  rename: safe
+
+content:
+  - name: site
+    label: My website
+    type: file
+    path: _data/site.yml
+    format: yaml
+    fields:
+      # ---- Who you are ----
+      - { name: name, label: "Your name", type: string, required: true }
+      - { name: url, label: "Website address", type: string, readonly: true }
+      - { name: headline, label: "Browser tab label", type: string, description: "Shown after your name in browser tabs and Google results." }
+      - { name: description, label: "Google description", type: text, description: "One or two sentences Google shows under your name." }
+      - { name: role, label: "Line above your name", type: string }
+      - { name: tagline, label: "Line under your name", type: string }
+
+      # ---- Research ----
+      - { name: research_title, label: "Research heading", type: string }
+      - { name: research_intro, label: "Research intro", type: string }
+      - name: research
+        label: "Research areas (keep exactly four, in the order the map visits them)"
+        type: object
+        list: true
+        fields:
+          - { name: title, label: "Title (also the label on the map)", type: string }
+          - { name: stage, label: "Stage", type: string, description: "For example: Thesis, Ongoing, Early stage." }
+          - { name: both_ways, label: "Show the two-way row (AI → people ⇄ people → AI)", type: boolean }
+          - { name: focus, label: "Focus keywords", type: string }
+          - { name: approach, label: "Approach keywords", type: string }
+
+      # ---- The big question ----
+      - { name: question_start, label: "Question, start", type: string }
+      - { name: question_highlight, label: "Question, highlighted middle (purple italics)", type: string }
+      - { name: question_end, label: "Question, end", type: text }
+
+      # ---- About ----
+      - { name: photo, label: "Your photo (headshot)", type: image, description: "A square photo works best, about 600 × 600 pixels." }
+      - { name: bio, label: "Bio", type: text }
+      - { name: bio_note, label: "Line under the bio", type: string }
+      - { name: department, label: "Department", type: string }
+      - { name: university, label: "University", type: string }
+      - { name: advisors, label: "Advisors", type: string, list: true }
+      - { name: earlier, label: "Earlier degree", type: string }
+      - { name: service, label: "Service", type: string }
+      - { name: service_detail, label: "Service detail", type: string }
+      - { name: methods, label: "Approach methods (three, matching the icons)", type: string, list: true }
+      - { name: interests, label: "Interests", type: string }
+      - { name: interests_note, label: "Interests note", type: string }
+
+      # ---- Notes ----
+      - name: notes
+        label: "Notes: talks, papers, posters (newest first)"
+        type: object
+        list: true
+        fields:
+          - { name: year, label: "Year", type: string }
+          - { name: kind, label: "Kind", type: string, description: "Talk, Paper, Poster…" }
+          - { name: title, label: "Title", type: string }
+          - { name: where, label: "Where / details", type: string }
+          - { name: image, label: "Picture (optional)", type: image }
+      - { name: notes_footer, label: "Line under the notes", type: string }
+
+      # ---- Photos ----
+      - { name: gallery_title, label: "Photo strip heading", type: string }
+      - name: gallery
+        label: "Photo strip (hidden when empty)"
+        type: object
+        list: true
+        fields:
+          - { name: image, label: "Photo", type: image }
+          - { name: caption, label: "Caption", type: string }
+
+      # ---- Contact ----
+      - { name: email, label: "Email (leave empty to hide)", type: string }
+      - name: links
+        label: "Link buttons (leave a link empty to hide it)"
+        type: object
+        list: true
+        fields:
+          - { name: label, label: "Button text", type: string }
+          - { name: url, label: "Link", type: string, description: "For a CV, upload the PDF to the repository as cv.pdf and put cv.pdf here." }
+      - { name: address, label: "Address line", type: string }
+
+      # ---- Search engines ----
+      - { name: topics, label: "Topics for search engines (not shown on the page)", type: string, list: true }
