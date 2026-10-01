@@ -1,0 +1,4 @@
+# Technical settings for GitHub Pages. You don't need to edit this file.
+# Your website's text and pictures live in _data/site.yml.
+url: "https://irahulshenoy.github.io"
+exclude: ["README.md", "LICENSE", "demo", "xyz", "data"]
