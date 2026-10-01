@@ -1,0 +1,234 @@
+# Your website's text and pictures.
+# Easiest: edit with Pages CMS (app.pagescms.org), which shows this file as a form.
+# You can also edit it here on GitHub: change the words inside the "quotes" and commit.
+
+# ---------- Who you are ----------
+name: "Your Name"
+url: "https://irahulshenoy.github.io"
+
+# The short label after your name in browser tabs and Google results
+headline: "Human factors, UW–Madison"
+
+# One or two sentences Google shows under your name in search results
+description: "PhD student in Industrial and Systems Engineering at UW–Madison, working on two-way alignment between people and AI, driver safety, co-adaptation and behavior change."
+
+# The small gold line above your name on the front page
+role: "PhD student · Industrial & Systems Engineering · UW–Madison"
+
+# The italic line under your name on the front page
+tagline: "I study alignment between people and AI, in both directions."
+
+
+# ---------- Research (the four stops on the map) ----------
+# Keep exactly four, in the order the map visits them.
+# Each one gets a spot on the Madison chart automatically.
+# "both_ways: true" shows the  AI → people ⇄ people → AI  row (use it for your thesis).
+research_title: "Four territories, one question."
+research_intro: "A chart of what I work on, drawn outward from campus."
+
+research:
+  - title: "Alignment"
+    stage: "Thesis"
+    both_ways: true
+    focus: "preference alignment, preference change, personalization"
+    approach: "behavioral experiments, mixed methods"
+
+  - title: "Driver safety"
+    stage: "Ongoing"
+    focus: "risk, feedback, driver behavior"
+    approach: "telematics, video analytics, field studies"
+
+  - title: "Co-adaptation"
+    stage: "Early stage"
+    focus: "human–AI adaptation, sense of agency, transparency"
+    approach: "controlled experiments, prototyping"
+
+  - title: "Behavior change"
+    stage: "Funded project"
+    focus: "nudges and boosts, autonomy, long-term effects"
+    approach: "field interventions, behavioral analytics"
+
+
+# ---------- The big question (lights up word by word) ----------
+# The middle part is shown in purple italics.
+question_start: "Across all four runs one question:"
+question_highlight: "how do people and AI come to align, in both directions,"
+question_end: "and how can design steer that toward what people would choose for themselves?"
+
+
+# ---------- About ----------
+bio: "I am a PhD student in human factors at the University of Wisconsin–Madison. My thesis treats alignment as a two-way street: systems learning what people prefer, and people’s preferences shifting as they work with those systems. I study it mostly in driving."
+bio_note: "Away from research: maps, history and sports. Hence the globe."
+
+department: "Industrial & Systems Engineering"
+university: "University of Wisconsin–Madison"
+
+# One name per line, each starting with "  - "
+advisors:
+  - "Tony McDonald"
+  - "John Lee"
+
+earlier: "MS, UW–Madison"
+
+service: "HFES student chapter"
+service_detail: "Human Factors and Ergonomics Society, UW–Madison"
+
+# The three methods in the Approach tile (the icons stay in this order)
+methods:
+  - "Experiments"
+  - "Field studies"
+  - "Data analytics"
+
+interests: "Maps, history & sports"
+interests_note: "Hence the globe and the chart."
+
+
+# ---------- Notes: talks, papers, posters ----------
+# Newest first. To add one, copy a whole block (from "- year" to "where")
+# and paste it at the top of the list.
+notes:
+  - year: "2026"
+    kind: "Talk"
+    title: "Introducing the UW–Madison HFES student chapter"
+    where: "Department kickoff colloquium, September 2026"
+
+notes_footer: "Papers and posters will be added here as they are published."
+
+
+# ---------- Contact ----------
+# Leave email as "" to hide it.
+email: "you@wisc.edu"
+
+# Links shown as buttons. Leave a url as "" to hide that button.
+# For a CV: upload your PDF to the repository as cv.pdf and keep url: "cv.pdf".
+links:
+  - label: "Google Scholar"
+    url: ""
+  - label: "GitHub"
+    url: "https://github.com/irahulshenoy"
+  - label: "LinkedIn"
+    url: ""
+  - label: "CV (PDF)"
+    url: ""
+
+address: "Department of Industrial and Systems Engineering · University of Wisconsin–Madison"
+
+
+# ---------- For search engines ----------
+# Topics you work on. Google and AI tools read these; visitors don't see them.
+topics:
+  - "human factors"
+  - "human–automation interaction"
+  - "automated driving"
+  - "human–AI alignment"
+  - "bidirectional alignment"
+  - "preference alignment"
+  - "behavior change"
+  - "nudging"
+  - "driver safety"
+  - "co-adaptation"
+  - "behavioral analytics"
+  - "mixed methods"
+
+
+# ---------- Pictures ----------
+# Your headshot, shown in the About section. Leave "" for none.
+photo: ""
+
+# Photo strip (shown only if it has at least one picture)
+gallery_title: "Snapshots"
+gallery: []
+# Pages CMS settings: turns _data/site.yml into an easy form at app.pagescms.org.
+# You don't need to edit this file.
+
+media:
+  input: images
+  output: /images
+  categories: [image]
+  rename: safe
+
+content:
+  - name: site
+    label: My website
+    type: file
+    path: _data/site.yml
+    format: yaml
+    fields:
+      # ---- Who you are ----
+      - { name: name, label: "Your name", type: string, required: true }
+      - { name: url, label: "Website address", type: string, readonly: true }
+      - { name: headline, label: "Browser tab label", type: string, description: "Shown after your name in browser tabs and Google results." }
+      - { name: description, label: "Google description", type: text, description: "One or two sentences Google shows under your name." }
+      - { name: role, label: "Line above your name", type: string }
+      - { name: tagline, label: "Line under your name", type: string }
+
+      # ---- Research ----
+      - { name: research_title, label: "Research heading", type: string }
+      - { name: research_intro, label: "Research intro", type: string }
+      - name: research
+        label: "Research areas (keep exactly four, in the order the map visits them)"
+        type: object
+        list: true
+        fields:
+          - { name: title, label: "Title (also the label on the map)", type: string }
+          - { name: stage, label: "Stage", type: string, description: "For example: Thesis, Ongoing, Early stage." }
+          - { name: both_ways, label: "Show the two-way row (AI → people ⇄ people → AI)", type: boolean }
+          - { name: focus, label: "Focus keywords", type: string }
+          - { name: approach, label: "Approach keywords", type: string }
+
+      # ---- The big question ----
+      - { name: question_start, label: "Question, start", type: string }
+      - { name: question_highlight, label: "Question, highlighted middle (purple italics)", type: string }
+      - { name: question_end, label: "Question, end", type: text }
+
+      # ---- About ----
+      - { name: photo, label: "Your photo (headshot)", type: image, description: "A square photo works best, about 600 × 600 pixels." }
+      - { name: bio, label: "Bio", type: text }
+      - { name: bio_note, label: "Line under the bio", type: string }
+      - { name: department, label: "Department", type: string }
+      - { name: university, label: "University", type: string }
+      - { name: advisors, label: "Advisors", type: string, list: true }
+      - { name: earlier, label: "Earlier degree", type: string }
+      - { name: service, label: "Service", type: string }
+      - { name: service_detail, label: "Service detail", type: string }
+      - { name: methods, label: "Approach methods (three, matching the icons)", type: string, list: true }
+      - { name: interests, label: "Interests", type: string }
+      - { name: interests_note, label: "Interests note", type: string }
+
+      # ---- Notes ----
+      - name: notes
+        label: "Notes: talks, papers, posters (newest first)"
+        type: object
+        list: true
+        fields:
+          - { name: year, label: "Year", type: string }
+          - { name: kind, label: "Kind", type: string, description: "Talk, Paper, Poster…" }
+          - { name: title, label: "Title", type: string }
+          - { name: where, label: "Where / details", type: string }
+          - { name: image, label: "Picture (optional)", type: image }
+      - { name: notes_footer, label: "Line under the notes", type: string }
+
+      # ---- Photos ----
+      - { name: gallery_title, label: "Photo strip heading", type: string }
+      - name: gallery
+        label: "Photo strip (hidden when empty)"
+        type: object
+        list: true
+        fields:
+          - { name: image, label: "Photo", type: image }
+          - { name: caption, label: "Caption", type: string }
+
+      # ---- Contact ----
+      - { name: email, label: "Email (leave empty to hide)", type: string }
+      - name: links
+        label: "Link buttons (leave a link empty to hide it)"
+        type: object
+        list: true
+        fields:
+          - { name: label, label: "Button text", type: string }
+          - { name: url, label: "Link", type: string, description: "For a CV, upload the PDF to the repository as cv.pdf and put cv.pdf here." }
+      - { name: address, label: "Address line", type: string }
+
+      # ---- Search engines ----
+      - { name: topics, label: "Topics for search engines (not shown on the page)", type: string, list: true }
+
