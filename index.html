@@ -508,7 +508,9 @@
     <div class="finale-in">
       <p class="kick">Contact</p>
       <h2 class="giant split">Write to me.</h2>
-      {% if c.email and c.email != "" %}<a class="mail" href="mailto:{{ c.email }}">{{ c.email | escape }}</a>{% endif %}
+      {% if c.email and c.email != "" %}{% assign ep = c.email | split: "@" %}<!-- the address is stored backwards and assembled by the script below, so simple spam bots reading this page don't find it -->
+      <a class="mail" href="#contact" data-u="{{ ep[0] | split: '' | reverse | join: '' | escape }}" data-d="{{ ep[1] | split: '' | reverse | join: '' | escape }}">Email me</a>
+      <noscript><p class="addr">Turn on JavaScript to see my email address.</p></noscript>{% endif %}
       <ul class="links">
         {%- for l in c.links %}{% if l.url and l.url != "" %}
         <li><a href="{{ l.url }}"{% if l.url contains "http" %} rel="me noopener"{% endif %}>{{ l.label | escape }}</a></li>
@@ -543,6 +545,14 @@
   var MOTION = root.classList.contains('motion') && typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined';
   if (!MOTION) root.classList.remove('motion');
   window.__siteReady = true;
+
+  // email: rebuild the address in the browser so it never sits in the page's HTML
+  Array.prototype.forEach.call(document.querySelectorAll('.mail[data-u]'), function (m) {
+    var back = function (x) { return (x || '').split('').reverse().join(''); };
+    var addr = back(m.getAttribute('data-u')) + '@' + back(m.getAttribute('data-d'));
+    m.href = 'mailto:' + addr; m.textContent = addr;
+    m.removeAttribute('data-u'); m.removeAttribute('data-d');
+  });
 
   /* ---------- helpers ---------- */
   function el(tag, attrs, parent) {
