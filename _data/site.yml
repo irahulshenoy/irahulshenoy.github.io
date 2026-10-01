@@ -21,7 +21,7 @@ research:
     approach: telematics, video analytics, field studies
   - title: Co-adaptation
     stage: Early stage
-    both_ways: true
+    both_ways: false
     focus: human–AI adaptation, sense of agency, transparency
     approach: controlled experiments, prototyping
   - title: Behavior change
